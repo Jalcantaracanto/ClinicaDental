@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Gasto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d5779b7-1912-4150-8205-d50e6d99919e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="90"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#CCB08F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6DBCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#CCB08F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6DBCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Gastos" uuid="c8783b0e-069b-4d65-9c59-3868691ccc72">
+		<queryString language="SQL">
+			<![CDATA[SELECT I.NOM_INSUMO "INSUMO", TO_CHAR(NVL(I.PRECIO_COMPRA * P.CANTIDAD,0), '$99G999G999') AS "GASTO TOTAL"
+FROM INSUMO I
+LEFT JOIN PEDIDO_INSUMO P
+ON I.ID_INSUMO = P.ID_INSUMO]]>
+		</queryString>
+		<field name="INSUMO" class="java.lang.String"/>
+		<field name="GASTO TOTAL" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[select * from insumo]]>
+	</queryString>
+	<field name="ID_INSUMO" class="java.math.BigDecimal"/>
+	<field name="NOM_INSUMO" class="java.lang.String"/>
+	<field name="ID_TIPO_INSUMO" class="java.math.BigDecimal"/>
+	<field name="ID_TIPO_FAMILIA" class="java.math.BigDecimal"/>
+	<field name="STOCK" class="java.math.BigDecimal"/>
+	<field name="PRECIO_COMPRA" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="58" width="120" height="22" uuid="1049f747-2a20-47fe-a515-bf9d470f1bdb"/>
+				<text><![CDATA[lindasonrisa@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="44" width="70" height="22" uuid="0c69e4cd-9fa0-44b9-b061-c96350b2a2cc"/>
+				<text><![CDATA[72.754.700-2]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-1" y="0" width="101" height="87" uuid="9dd689d9-dced-4ba5-a508-97565366ac7b"/>
+				<imageExpression><![CDATA["https://i.pinimg.com/564x/5c/3f/88/5c3f88019a54034d415730f87ce0f9e8.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="28" width="183" height="17" uuid="8870a28f-84c9-4a5c-8954-aa596fac3520"/>
+				<text><![CDATA[Álvarez 2336, Viña del Mar, Valparaíso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="280" height="30" uuid="d33db9ff-edfa-420c-af44-3f69d3c8bb63"/>
+				<textElement>
+					<font fontName="Arial" size="20" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Linda Sonrisa LTDA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="60" width="80" height="20" uuid="2750c47b-2db6-4e18-8c3f-a0dcc539367e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="80" height="20" uuid="c449be3b-4810-4635-aa8f-b2a4b4d6ee20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="80" height="20" uuid="3380ebc0-dc39-4621-b91c-4868b4945565"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="20" width="100" height="20" uuid="a98f03b8-339a-46e1-8483-570cf1f31d64"/>
+				<text><![CDATA[Doctores]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="80" y="40" width="100" height="20" uuid="654c90ee-8fad-465f-b4ec-8a3cb6bc8029"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement x="80" y="60" width="100" height="20" uuid="9310565a-c35d-490c-b87a-f357210c49a9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="232" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" isPrintRepeatedValues="false" x="98" y="10" width="360" height="140" uuid="bfeec26d-c071-4913-bba5-0379dd2a2fbd">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Gastos" uuid="7b2fd3d9-6db0-40ae-8da0-9f3402e67fac">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="180" uuid="7c0970cd-cb45-4086-aaa1-8f9331666271">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="180" height="30" uuid="a460dcdc-79a4-4eac-a96d-b833ae6fbfd7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[INSUMO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="178" height="20" uuid="35e019ed-bf52-4cbb-95b6-820c88949f50"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{INSUMO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="180" uuid="7b2191cd-b1ca-4183-9f30-dfe8c469dbc7">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="180" height="30" uuid="988495c6-24b3-4fef-91d5-387045641ad6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[GASTO TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="8569a8c8-1b3e-4b49-acf6-3b0e23d6dd52"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{GASTO TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="69" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="1" uuid="ad0017be-86ef-4482-9158-510959544689">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="230" y="30" width="100" height="30" uuid="45cd1380-2cbf-4466-8728-a6c1de09cc36"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

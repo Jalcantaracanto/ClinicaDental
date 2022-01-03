@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2020-06-30T13:28:35 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Servicios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a1c6f27-80fc-45d5-84f7-555e3509fdbe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#CCB08F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6DBCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#CCB08F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6DBCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Servicios" uuid="7102da52-9b78-43ca-baf5-41f58d5f4741">
+		<queryString language="SQL">
+			<![CDATA[SELECT S.NOM_SERVICIO "SERVICIO",COUNT(R.ID_SERVICIO) "CANTIDAD DE TOMAS"
+FROM RESERVA R
+JOIN SERVICIO S
+ON R.ID_SERVICIO = S.ID_SERVICIO
+GROUP BY S.NOM_SERVICIO]]>
+		</queryString>
+		<field name="SERVICIO" class="java.lang.String"/>
+		<field name="CANTIDAD DE TOMAS" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT ID_SERVICIO, NOM_SERVICIO, DESCRIPCION_SERVICIO, VALOR_SERVICIO
+                FROM SERVICIO]]>
+	</queryString>
+	<field name="ID_SERVICIO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<image>
+				<reportElement x="-1" y="0" width="101" height="87" uuid="a8cb787a-3231-42d3-af88-6a4029bd98bc"/>
+				<imageExpression><![CDATA["https://i.pinimg.com/564x/5c/3f/88/5c3f88019a54034d415730f87ce0f9e8.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="0" width="280" height="30" uuid="f23f9fc1-aeeb-4496-954c-3ad84db7d7b1"/>
+				<textElement>
+					<font fontName="Arial" size="20" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Linda Sonrisa LTDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="28" width="183" height="17" uuid="b19bea8d-85cb-4ddf-906b-711812b2fb67"/>
+				<text><![CDATA[Álvarez 2336, Viña del Mar, Valparaíso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="44" width="70" height="22" uuid="b1f63e9d-0f5a-4e8f-8fdb-d59dd98b20bf"/>
+				<text><![CDATA[72.754.700-2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="58" width="120" height="22" uuid="e0b860b3-f6fb-4ae1-988a-e26b43d35ef3"/>
+				<text><![CDATA[lindasonrisa@gmail.com]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="80" height="20" uuid="4d2488de-f386-4744-ab8f-a6d5f55baaf5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="80" y="41" width="100" height="20" uuid="43625d2d-0f7a-4464-b209-d2ca2f721ff8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="21" width="100" height="20" uuid="551c3704-fa5e-4921-8590-1dd7841db7cf"/>
+				<text><![CDATA[Servicios]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement x="80" y="61" width="100" height="20" uuid="2eda9d85-4ae4-491f-a370-5e5a519cbf49"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="80" height="20" uuid="193d79a2-2f87-4795-bf23-920f21482e05"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="61" width="80" height="20" uuid="65523a8d-461a-4c74-9c64-6ba974b85a88"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Reporte:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="200" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" isPrintRepeatedValues="false" x="107" y="10" width="340" height="140" uuid="e9417144-4bf7-4d01-92b5-faa65b0fc9b6">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Servicios" uuid="278b62cb-35b2-4578-908b-0ff67f5e4b33">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="190" uuid="71e88a7e-7f31-4f79-a52f-bd81673031b4">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="47138dc4-e261-47c5-9dee-99233dcef956"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SERVICIO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="2" y="0" width="188" height="20" uuid="58090e30-4473-4eee-b4a9-637ea27e2c3f"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SERVICIO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="3d181575-fc52-4fe9-9360-79de8d328100">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="efe292de-da27-4d59-9b36-4f024bfe6a46"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CANTIDAD DE TOMAS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="20" uuid="8f3422bc-e0ff-4395-bcb8-b15b2ed4539c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CANTIDAD DE TOMAS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="30" width="100" height="30" uuid="2cd56db9-fcbb-454b-89c3-91248e5bb518"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="1" uuid="da3b97e2-7318-4fc9-89cb-fc3740666db1">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+		</band>
+	</pageFooter>
+</jasperReport>
